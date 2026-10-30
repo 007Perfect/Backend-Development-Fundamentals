@@ -1,0 +1,7 @@
+Save your genuine screenshots in this folder:
+- home.png
+- about.png
+- time.png
+- not-found.png
+
+Also include evidence of the status codes (browser Network panel or Postman).
