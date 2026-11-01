@@ -1,6 +1,6 @@
 # Lab 1: Node.js and Express server
 
-**Name:** Jella Durga Prasad 
+**Name:** J Durga Prasad 
 **Registration number:** 252U1R6101
 **Section:** AIML-2B / 207 
 
