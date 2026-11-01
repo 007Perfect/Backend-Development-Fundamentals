@@ -5,7 +5,7 @@
 **Section:** AIML-2B / 207 
 
 ## Live link
-Not deployed yet. If deployment is not possible, explain why here and include Postman screenshots of every endpoint. If deployed, replace this text with your public URL.
+https://dp-lab-01.onrender.com
 
 ## Objective
 Create a basic server using Node.js built-in `http` module, then create an Express server with three GET routes and a 404 response for unknown paths.
@@ -46,22 +46,27 @@ No environment variables are required for this lab.
 
 ## Screenshots
 
-Add your own screenshots in the `screenshots/` folder. Do not use sample or edited screenshots as proof of execution.
+### Home route (GET /) - status 200
+![Home route returning welcome message with status 200](screenshots/home.png)
 
-### Home route
-![Home route](screenshots/home.png)
+### About route (GET /about) - status 200
+![About route returning JSON with name and section](screenshots/about.png)
 
-### About route
-![About route](screenshots/about.png)
+### Time route (GET /time) - status 200
+![Time route returning current date and time](screenshots/time.png)
 
-### Time route
-![Time route](screenshots/time.png)
+### Unknown route - status 404
+![Unknown path returning 404 Page not found](screenshots/not-found.png)
 
-### Unknown route (404)
-![404 route](screenshots/not-found.png)
+### Plain Node.js http server
+![Plain http server replying Hello](screenshots/plain-hello.png)
 
-### Status codes
-Add browser Network-panel or Postman screenshots showing the actual status codes returned by your server.
+### Status codes returned
+| Route | Status |
+|---|---|
+| `/` | 200 |
+| `/about` | 200 |
+| `/time` | 200 |
+| `/unknown` | 404 |
 
-## Notes: problems faced and solutions
-Write the actual problems you faced and how you solved them. Do not leave this section as a placeholder.
+

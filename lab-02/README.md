@@ -1,10 +1,10 @@
 # Lab 2: SQLite database and CRUD routes
 
-**Name:** REPLACE WITH YOUR NAME  
-**Registration number:** REPLACE WITH YOUR REGISTRATION NUMBER  
-**Section:** REPLACE WITH YOUR SECTION
+**Name:** J Durga Prasad  
+**Registration number:** 252U1R6101
+**Section:** AIML-2B / 207
 
-**Live link:** Not deployed yet. Add the Railway/Render URL after deployment.
+**Live link:** https://dp-lab-02.onrender.com
 
 ## Description
 An Express application connected to a SQLite database. It provides five CRUD endpoints for books.
@@ -59,13 +59,25 @@ SELECT * FROM book;
 ```
 
 ## Screenshots
-Add your own Postman and SQLite screenshots to `screenshots/`, then link them here. Example:
-```md
-![GET all books](screenshots/get-all-books.png)
-```
 
-## Problems faced and solutions
-REPLACE THIS SECTION with genuine problems you faced and how you solved them.
+### GET /books/ - all books (200)
+![GET all books](screenshots/get-all-books.png)
+
+### GET /books/4 - one book (200)
+![GET one book](screenshots/get-one-book.png)
+
+### POST /books/ - add a book (201)
+![POST add book](screenshots/post-book.png)
+
+### PUT /books/1 - update a book (200)
+![PUT update book](screenshots/put-book.png)
+
+### DELETE /books/11/ - delete a book (200)
+![DELETE book](screenshots/delete-book.png)
+
+### Live deployment - GET /books
+![Live GET all books on Render](screenshots/live-get-all-books.png)
+```
 
 ## Notes
 - User-provided values are passed through `?` placeholders.
