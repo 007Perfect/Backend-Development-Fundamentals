@@ -1,8 +1,8 @@
 # Lab 3: REST API, query parameters, validation, debugging
 
-**Name:** Replace with your name  
-**Registration number:** Replace with your registration number  
-**Section:** Replace with your section  
+**Name:** J Durga Prasad
+**Registration number:** 252U1R6101
+**Section:** AIML-2B / 207
 
 **Live link:** Add your deployed public URL after deployment.
 
