@@ -4,7 +4,7 @@
 **Registration number:** 252U1R6101
 **Section:** AIML-2B / 207
 
-**Live link:** Not deployed yet. The public URL will be added here after deployment.
+**Live link:** https://dp-lab-03.onrender.com/
 
 ## Objective
 Turn the Lab 2 book routes into a REST API with search, sorting, price filtering, pagination, validation, correct status codes and debugging practice.
