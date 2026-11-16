@@ -3,9 +3,9 @@
 **Course:** Backend Development Fundamentals  
 **Module:** Authentication and User Management  
 **Student Name:** Jella Durga Prasad  
-**Registration Number:** 252U1R6101 *(Verify/Update if your department uses a different format)*  
-**Section:** `[ENTER_YOUR_SECTION_HERE]`  
-**Live Deployment URL (Render):** `[ADD_YOUR_RENDER_URL_HERE_AFTER_DEPLOYMENT]`  
+**Registration Number:** 252U1R6101 
+**Section:** `AIML-2B/207`  
+**Live Deployment URL (Render):** `https://dp-lab-04.onrender.com/`  
 
 ---
 
@@ -36,18 +36,8 @@ lab-04/
 │   ├── users.sql                      # SQL schema reference for the user table
 │   └── users.db                       # Auto-generated SQLite database on server start
 │
-├── screenshots/                       # Submission screenshots (see Section 14)
-│   ├── 01_server_running.png
-│   ├── 02_register_success.png
-│   ├── 03_register_duplicate.png
-│   ├── 04_register_validation.png
-│   ├── 05_login_success.png
-│   ├── 06_login_unknown_user.png
-│   ├── 07_login_wrong_password.png
-│   ├── 08_database_hash.png           # TO ADD (SQLite viewer showing hashed password)
-│   ├── 09_jwt_decode.png
-│   ├── 10_server_code.png
-│   └── 11_home_route.png
+├── screenshots/
+│   └── ADD_SCREENSHOTS_HERE.txt       # Checklist of required submission screenshots
 │
 ├── server.js                          # Main Express server and authentication routes
 ├── package.json                       # Project metadata, scripts, and dependencies
@@ -217,8 +207,8 @@ You can either import `Lab_4_Postman_Collection.json` directly into Postman or c
    - Enter URL: `http://localhost:3000/login/`
    - Click **Body** -> select **raw** -> select **JSON**.
    - Paste the valid credentials for `durga01` and click **Send**. Verify status is **200 OK** and copy the returned `jwt_token`.
-   - Change `"username"` to `"unknown_user_99"` (keep password `TestPass123`) and click **Send**. Verify status is **400 Bad Request** (`Invalid user`).
-   - Restore `"username": "durga01"`, change `"password"` to `"WrongPassword999"`, and click **Send**. Verify status is **400 Bad Request** (`Invalid password`).
+   - Change `"username"` to `"unknown_user"` and click **Send**. Verify status is **400 Bad Request** (`Invalid user`).
+   - Restore `"username": "durga01"`, change `"password"` to `"WrongPass"`, and click **Send**. Verify status is **400 Bad Request** (`Invalid password`).
 
 > **Security Tip:** Always mask or blur the middle portion of your JWT token before sharing screenshots publicly.
 
@@ -231,60 +221,21 @@ You can either import `Lab_4_Postman_Collection.json` directly into Postman or c
    - **PAYLOAD:** Displays `{"username": "durga01", "iat": <timestamp>, "exp": <timestamp>}`. Confirm no password appears here.
    - *(Note: Decoding a JWT on jwt.io reads its Base64Url header and payload; signature verification requires entering your secret key in the Verify Signature box.)*
 
-## 14. Screenshots
-All screenshots are stored in `lab-04/screenshots/`.
+## 14. Screenshot Checklist
+Capture screenshots using **Windows + Shift + S** and save them inside `lab-04/screenshots/`:
 
-| # | Filename | What it Shows | Status |
-|---|---|---|---|
-| 1 | `01_server_running.png` | VS Code terminal: SQLite connected and server running on port 3000 | Done |
-| 2 | `02_register_success.png` | Postman `POST /register/` returning `201 Created` | Done |
-| 3 | `03_register_duplicate.png` | Postman `POST /register/` with duplicate username returning `400 Bad Request` | Done |
-| 4 | `04_register_validation.png` | Postman `POST /register/` with missing `password` returning `400 Bad Request` | Done |
-| 5 | `05_login_success.png` | Postman `POST /login/` returning `200 OK` and `jwt_token` | Done |
-| 6 | `06_login_unknown_user.png` | Postman `POST /login/` with unknown username returning `400 Bad Request` | Done |
-| 7 | `07_login_wrong_password.png` | Postman `POST /login/` with wrong password returning `400 Bad Request` | Done |
-| 8 | `08_database_hash.png` | SQLite viewer displaying the `user` table and `$2b$10$...` password hash | **Pending** |
-| 9 | `09_jwt_decode.png` | `jwt.io` showing decoded header and payload (`username`, `iat`, `exp`) | Done |
-| 10 | `10_server_code.png` | VS Code showing `server.js` | Done (see note) |
-| 11 | `11_home_route.png` | Postman `GET /` returning `200 OK` (bonus) | Done |
-
-> **Note on #10:** the current screenshot only shows the top of `server.js` (imports and config). For full marks, retake it scrolled to the `/register/` and `/login/` routes so `bcrypt.hash()`, `bcrypt.compare()` and `jwt.sign()` are visible.
->
-> **Note on #8:** open `database/users.db` with the VS Code "SQLite Viewer" extension or DB Browser for SQLite, show the `user` row with the `$2b$10$...` hash, and save it as `08_database_hash.png`.
-
-### Screenshot Gallery
-
-**1. Server running**
-![Server running](screenshots/01_server_running.png)
-
-**2. Register success (201)**
-![Register success](screenshots/02_register_success.png)
-
-**3. Register duplicate (400)**
-![Register duplicate](screenshots/03_register_duplicate.png)
-
-**4. Register validation (400)**
-![Register validation](screenshots/04_register_validation.png)
-
-**5. Login success (200 + jwt_token)**
-![Login success](screenshots/05_login_success.png)
-
-**6. Login unknown user (400)**
-![Login unknown user](screenshots/06_login_unknown_user.png)
-
-**7. Login wrong password (400)**
-![Login wrong password](screenshots/07_login_wrong_password.png)
-
-**8. Database hash** - *to be added*
-
-**9. JWT decoded on jwt.io**
-![JWT decode](screenshots/09_jwt_decode.png)
-
-**10. Server code**
-![Server code](screenshots/10_server_code.png)
-
-**11. Home route (200)**
-![Home route](screenshots/11_home_route.png)
+| # | Filename | What to Capture |
+|---|---|---|
+| 1 | `01_server_running.png` | VS Code terminal showing the server running on port 3000 and SQLite connected |
+| 2 | `02_register_success.png` | Postman `POST /register/` returning `201 Created` |
+| 3 | `03_register_duplicate.png` | Postman `POST /register/` with duplicate username returning `400 Bad Request` |
+| 4 | `04_register_validation.png` | Postman `POST /register/` with missing field returning `400 Bad Request` |
+| 5 | `05_login_success.png` | Postman `POST /login/` returning `200 OK` and `jwt_token` |
+| 6 | `06_login_unknown_user.png` | Postman `POST /login/` with unknown username returning `400 Bad Request` |
+| 7 | `07_login_wrong_password.png` | Postman `POST /login/` with wrong password returning `400 Bad Request` |
+| 8 | `08_database_hash.png` | SQLite viewer displaying the `user` table and `$2b$10$...` password hash |
+| 9 | `09_jwt_decode.png` | `jwt.io` showing the decoded header and payload (`username`, `iat`, `exp`) |
+| 10 | `10_server_code.png` | VS Code showing `bcrypt.hash()`, `bcrypt.compare()`, and `jwt.sign()` in `server.js` |
 
 ## 15. Problems Faced and Solutions
 1. **Native `bcrypt` Build Issues on Windows:**
@@ -296,10 +247,6 @@ All screenshots are stored in `lab-04/screenshots/`.
 3. **Forgetting `express.json()` Middleware:**
    - *Problem:* Without `app.use(express.json())`, `req.body` is `undefined` on `POST` requests.
    - *Solution:* Registered `app.use(express.json())` before defining `/register/` and `/login/`.
-
-4. **Malformed JSON Body Causing `SyntaxError` in Terminal:**
-   - *Problem:* While testing validation, a request body with a syntax mistake (e.g., a trailing comma) made `express.json()` throw `SyntaxError: Expected double-quoted property name in JSON`, which appeared in the terminal (visible in `01_server_running.png`).
-   - *Solution:* Fixed the JSON in Postman (Postman's "Fix JSON syntax error" hint helps). Valid JSON bodies are parsed normally. An error-handling middleware that returns `400` for invalid JSON can also be added.
 
 ## 16. Viva Questions and Simple Answers
 1. **Q: Why do we use `bcrypt` instead of storing passwords directly or using MD5/SHA-256?**  
