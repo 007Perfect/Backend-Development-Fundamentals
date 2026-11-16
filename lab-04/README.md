@@ -36,8 +36,18 @@ lab-04/
 │   ├── users.sql                      # SQL schema reference for the user table
 │   └── users.db                       # Auto-generated SQLite database on server start
 │
-├── screenshots/
-│   └── ADD_SCREENSHOTS_HERE.txt       # Checklist of required submission screenshots
+├── screenshots/                       # Submission screenshots (see Section 14)
+│   ├── 01_server_running.png
+│   ├── 02_register_success.png
+│   ├── 03_register_duplicate.png
+│   ├── 04_register_validation.png
+│   ├── 05_login_success.png
+│   ├── 06_login_unknown_user.png
+│   ├── 07_login_wrong_password.png
+│   ├── 08_database_hash.png           # TO ADD (SQLite viewer showing hashed password)
+│   ├── 09_jwt_decode.png
+│   ├── 10_server_code.png
+│   └── 11_home_route.png
 │
 ├── server.js                          # Main Express server and authentication routes
 ├── package.json                       # Project metadata, scripts, and dependencies
@@ -207,8 +217,8 @@ You can either import `Lab_4_Postman_Collection.json` directly into Postman or c
    - Enter URL: `http://localhost:3000/login/`
    - Click **Body** -> select **raw** -> select **JSON**.
    - Paste the valid credentials for `durga01` and click **Send**. Verify status is **200 OK** and copy the returned `jwt_token`.
-   - Change `"username"` to `"unknown_user"` and click **Send**. Verify status is **400 Bad Request** (`Invalid user`).
-   - Restore `"username": "durga01"`, change `"password"` to `"WrongPass"`, and click **Send**. Verify status is **400 Bad Request** (`Invalid password`).
+   - Change `"username"` to `"unknown_user_99"` (keep password `TestPass123`) and click **Send**. Verify status is **400 Bad Request** (`Invalid user`).
+   - Restore `"username": "durga01"`, change `"password"` to `"WrongPassword999"`, and click **Send**. Verify status is **400 Bad Request** (`Invalid password`).
 
 > **Security Tip:** Always mask or blur the middle portion of your JWT token before sharing screenshots publicly.
 
@@ -221,21 +231,68 @@ You can either import `Lab_4_Postman_Collection.json` directly into Postman or c
    - **PAYLOAD:** Displays `{"username": "durga01", "iat": <timestamp>, "exp": <timestamp>}`. Confirm no password appears here.
    - *(Note: Decoding a JWT on jwt.io reads its Base64Url header and payload; signature verification requires entering your secret key in the Verify Signature box.)*
 
-## 14. Screenshot Checklist
-Capture screenshots using **Windows + Shift + S** and save them inside `lab-04/screenshots/`:
+## 14. Screenshots
+All screenshots are stored in `lab-04/screenshots/`.
 
-| # | Filename | What to Capture |
+| # | Filename | What it Shows |
 |---|---|---|
-| 1 | `01_server_running.png` | VS Code terminal showing the server running on port 3000 and SQLite connected |
+| 1 | `01_server_running.png` | VS Code terminal: SQLite connected and server running on port 3000 |
 | 2 | `02_register_success.png` | Postman `POST /register/` returning `201 Created` |
-| 3 | `03_register_duplicate.png` | Postman `POST /register/` with duplicate username returning `400 Bad Request` |
-| 4 | `04_register_validation.png` | Postman `POST /register/` with missing field returning `400 Bad Request` |
+| 3 | `03_register_duplicate.png` | Postman `POST /register/` with duplicate username returning `400` |
+| 4 | `04_register_validation.png` | Postman `POST /register/` with missing `password` returning `400` |
 | 5 | `05_login_success.png` | Postman `POST /login/` returning `200 OK` and `jwt_token` |
-| 6 | `06_login_unknown_user.png` | Postman `POST /login/` with unknown username returning `400 Bad Request` |
-| 7 | `07_login_wrong_password.png` | Postman `POST /login/` with wrong password returning `400 Bad Request` |
-| 8 | `08_database_hash.png` | SQLite viewer displaying the `user` table and `$2b$10$...` password hash |
-| 9 | `09_jwt_decode.png` | `jwt.io` showing the decoded header and payload (`username`, `iat`, `exp`) |
-| 10 | `10_server_code.png` | VS Code showing `bcrypt.hash()`, `bcrypt.compare()`, and `jwt.sign()` in `server.js` |
+| 6 | `06_login_unknown_user.png` | Postman `POST /login/` with unknown username returning `400` |
+| 7 | `07_login_wrong_password.png` | Postman `POST /login/` with wrong password returning `400` |
+| 8 | `08_database_hash.png` | SQLite viewer showing the `user` table and `$2b$10$...` hash |
+| 9 | `09_jwt_decode.png` | `jwt.io` showing decoded header and payload |
+| 10 | `10_server_code.png` | VS Code showing `server.js` |
+| 11 | `11_home_route.png` | Postman `GET /` returning `200 OK` |
+
+### Screenshot Gallery
+
+**1. Server running**
+
+![Server running](screenshots/01_server_running.png)
+
+**2. Register success (201)**
+
+![Register success (201)](screenshots/02_register_success.png)
+
+**3. Register duplicate (400)**
+
+![Register duplicate (400)](screenshots/03_register_duplicate.png)
+
+**4. Register validation (400)**
+
+![Register validation (400)](screenshots/04_register_validation.png)
+
+**5. Login success (200 + jwt_token)**
+
+![Login success (200 + jwt_token)](screenshots/05_login_success.png)
+
+**6. Login unknown user (400)**
+
+![Login unknown user (400)](screenshots/06_login_unknown_user.png)
+
+**7. Login wrong password (400)**
+
+![Login wrong password (400)](screenshots/07_login_wrong_password.png)
+
+**8. Database hash**
+
+*(to be added)*
+
+**9. JWT decoded on jwt.io**
+
+![JWT decoded on jwt.io](screenshots/09_jwt_decode.png)
+
+**10. Server code**
+
+![Server code](screenshots/10_server_code.png)
+
+**11. Home route (200)**
+
+![Home route (200)](screenshots/11_home_route.png)
 
 ## 15. Problems Faced and Solutions
 1. **Native `bcrypt` Build Issues on Windows:**
