@@ -1,0 +1,195 @@
+{
+  "info": {
+    "name": "Lab 4 - Registration, Login and JWT",
+    "description": "Postman collection for testing Backend Development Fundamentals Lab 4",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Home - Check Server Status",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            ""
+          ]
+        }
+      }
+    },
+    {
+      "name": "2. Register - Success (201)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"durga01\",\n  \"name\": \"Durga Prasad\",\n  \"password\": \"TestPass123\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/register/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "register",
+            ""
+          ]
+        }
+      }
+    },
+    {
+      "name": "3. Register - Duplicate Username (400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"durga01\",\n  \"name\": \"Durga Prasad\",\n  \"password\": \"TestPass123\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/register/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "register",
+            ""
+          ]
+        }
+      }
+    },
+    {
+      "name": "4. Register - Missing Field Validation (400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"durga02\",\n  \"name\": \"Durga Prasad\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/register/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "register",
+            ""
+          ]
+        }
+      }
+    },
+    {
+      "name": "5. Login - Success (200)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"durga01\",\n  \"password\": \"TestPass123\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/login/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "login",
+            ""
+          ]
+        }
+      }
+    },
+    {
+      "name": "6. Login - Unknown Username (400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"unknown_user_99\",\n  \"password\": \"TestPass123\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/login/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "login",
+            ""
+          ]
+        }
+      }
+    },
+    {
+      "name": "7. Login - Wrong Password (400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"durga01\",\n  \"password\": \"WrongPass999\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/login/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "login",
+            ""
+          ]
+        }
+      }
+    }
+  ]
+}
